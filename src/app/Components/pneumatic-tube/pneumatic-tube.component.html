@@ -1,0 +1,79 @@
+<div class="form-container">
+  <h2>Tablero de Envios de Laboratorios</h2>
+  <div class="filter-group">
+      <div class="form-group">
+          <label for="fecha_desde">Fecha Desde:</label>
+          <input type="date" id="fecha_desde" [(ngModel)]="fechaDesde" name="fechaDesde" required>
+      </div>
+      <div class="form-group">
+          <label for="fecha_hasta">Fecha Hasta:</label>
+          <input type="date" id="fecha_hasta" [(ngModel)]="fechaHasta" name="fechaHasta" required>
+      </div>
+      <div class="form-group">
+          <label for="identificacion">Identificación del Paciente:</label>
+          <input type="text" id="identificacion" [(ngModel)]="identificacion" name="identificacion" placeholder="Ingrese identificación" required>
+      </div>
+  </div>
+  <div class="filter-group">
+      <div class="form-group">
+          <label for="empresa">Empresa Responsable:</label>
+          <select id="empresa" [(ngModel)]="empresa" name="empresa" required>
+              <option value="">Seleccione una empresa</option>
+              <option value="empresa1">Empresa 1</option>
+              <option value="empresa2">Empresa 2</option>
+              <option value="empresa3">Empresa 3</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="diagnostico">Diagnósticos:</label>
+          <select id="diagnostico" [(ngModel)]="diagnostico" name="diagnostico" required>
+              <option value="">Seleccione un Diagnóstico</option>
+              <option value="diagnostico1">Diagnóstico 1</option>
+              <option value="diagnostico2">Diagnóstico 2</option>
+              <option value="diagnostico3">Diagnóstico 3</option>
+          </select>
+      </div>
+      <div class="form-group">
+          <label for="tipo_procedimiento">Tipo de Procedimiento:</label>
+          <select id="tipo_procedimiento" [(ngModel)]="tipoProcedimiento" name="tipoProcedimiento" required>
+              <option value="">Seleccione un procedimiento</option>
+              <option value="tipo1">Tipo 1</option>
+              <option value="tipo2">Tipo 2</option>
+              <option value="tipo3">Tipo 3</option>
+          </select>
+      </div>
+  </div>
+
+  <div class="button-group">
+      <button (click)="consultar()">Consultar</button>
+      <button (click)="limpiar()">Limpiar</button>
+      <button (click)="exportarExcel()">Exportar a Excel</button>
+  </div>
+</div>
+
+<table>
+  <thead>
+      <tr>
+          <th>Identificación del Paciente</th>
+          <th>Nombre del Paciente</th>
+          <th>Diagnóstico</th>
+          <th>Tipo de Procedimiento</th>
+          <th>Estado del Procedimiento</th>
+          <th>Fecha de la Orden Médica</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let paciente of pacientes">
+          <td>{{ paciente.identificacion }}</td>
+          <td>{{ paciente.nombre }}</td>
+          <td>{{ paciente.diagnostico }}</td>
+          <td>{{ paciente.tipoProcedimiento }}</td>
+          <td>
+              <span class="status-icon" [ngClass]="{ 'pending': paciente.estado === 'Pendiente', 'completed': paciente.estado === 'Realizado' }">
+                  {{ paciente.estado === 'Pendiente' ? '🔴' : '🟢' }}
+              </span> {{ paciente.estado }}
+          </td>
+          <td>{{ paciente.fecha }}</td>
+      </tr>
+  </tbody>
+</table>

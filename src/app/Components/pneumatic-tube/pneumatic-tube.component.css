@@ -1,0 +1,83 @@
+body {
+    font-family: Calibri;
+    margin: 0;
+    padding: 20px;
+    background-color: #5F8BDE;
+}
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.filter-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.form-group {
+    flex: 1 1 30%;
+    margin-right: 10px;
+}
+.form-group:last-child {
+    margin-right: 0;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group select {
+    width: 90%;
+    height: 28px;  /* Altura fija para todos los campos */
+    padding: 2px;  /* Ajuste de padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+}
+.button-group {
+    margin-top: 10px;
+    text-align: center;  /* Centrar botones */
+}
+.button-group button {
+    background-color: #AF5FDE;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.button-group button:hover {
+    background-color: #AF5FDE;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #ccc;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #AF5FDE;
+    color: white;
+}
+.status-icon {
+    font-size: 1.2em;
+}
+.pending {
+    color: red;
+}
+.completed {
+    color: green;
+}

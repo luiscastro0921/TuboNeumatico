@@ -1,0 +1,10 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  app-root {
+    display: block; /* Asegúrate de que no esté oculto */
+  }
+  

@@ -1,0 +1,56 @@
+<div class="master-configurations-container">
+    <div class="filters">
+      <input type="text" placeholder="Código de examen" />
+      <select>
+        <option *ngFor="let exam of exams">{{ exam.name }}</option>
+      </select>
+      <input type="text" placeholder="CUPS" />
+      <select>
+        <option *ngFor="let container of containers">{{ container.name }}</option>
+      </select>
+      <select>
+        <option>Alto</option>
+        <option>Medio</option>
+        <option>Bajo</option>
+      </select>
+      <input type="text" placeholder="Tiempo de alerta" />
+      <label>
+        <input type="checkbox" /> Activo
+      </label>
+      <button (click)="consult()">Consultar</button>
+      <button (click)="insert()">Insertar</button>
+      <button (click)="update()">Actualizar</button>
+      <button (click)="delete()">Eliminar</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Código de Examen</th>
+          <th>Nombre del Examen</th>
+          <th>CUPS</th>
+          <th>Tipo de envase</th>
+          <th>Prioridad</th>
+          <th>Tiempo de alerta</th>
+          <th>Usuario de Creación</th>
+          <th>Fecha de Creación</th>
+          <th>Usuario Modificación</th>
+          <th>Fecha de Modificación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exam of exams">
+          <td>{{ exam.code }}</td>
+          <td>{{ exam.name }}</td>
+          <td>{{ exam.cups }}</td>
+          <td>{{ exam.containerType }}</td>
+          <td>{{ exam.priority }}</td>
+          <td>{{ exam.alertTime }}</td>
+          <td>{{ exam.createdBy }}</td>
+          <td>{{ exam.createdAt }}</td>
+          <td>{{ exam.updatedBy }}</td>
+          <td>{{ exam.updatedAt }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
